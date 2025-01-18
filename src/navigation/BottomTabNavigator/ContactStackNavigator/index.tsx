@@ -6,7 +6,7 @@ const Stack = createStackNavigator();
 
 export const ContactStackNavigator = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="Contact" component={Contact} />
     </Stack.Navigator>
   );
