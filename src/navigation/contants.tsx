@@ -4,5 +4,7 @@ export enum NavigationScreenNames {
   ContactStack = 'ContactStack',
   Screen1 = 'Screen1',
   Screen2 = 'Screen2',
-  ContactScreen = 'ContactScreen',
+  ContactScreen = 'Contact',
+  Drawer = 'Drawer',
+  DrawerSideBar = 'DrawerSideBar',
 }

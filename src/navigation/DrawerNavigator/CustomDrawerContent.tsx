@@ -5,6 +5,7 @@ import {
   DrawerItem,
 } from '@react-navigation/drawer';
 import {NavigationScreenNames} from '../contants';
+import {StyleSheet} from 'react-native';
 
 export const CustomDrawerContent = (props: DrawerContentComponentProps) => {
   const {navigation} = props;
@@ -12,20 +13,18 @@ export const CustomDrawerContent = (props: DrawerContentComponentProps) => {
   return (
     <DrawerContentScrollView
       {...props}
-      contentContainerStyle={{
-        flex: 1,
-        flexDirection: 'column',
-        gap: 20,
-      }}>
+      contentContainerStyle={styles.drawerContainer}>
       <DrawerItem
         focused
         label={NavigationScreenNames.Screen1}
-        onPress={() =>
+        onPress={() => {
+          console.log('cing her$$$$');
           navigation.navigate(NavigationScreenNames.BottomTab, {
             screen: NavigationScreenNames.HomeStack,
             params: {screen: NavigationScreenNames.Screen1},
-          })
-        }
+          });
+        }}
+        style={styles.drawerItem}
       />
       <DrawerItem
         focused
@@ -36,6 +35,7 @@ export const CustomDrawerContent = (props: DrawerContentComponentProps) => {
             params: {screen: NavigationScreenNames.Screen2},
           })
         }
+        style={styles.drawerItem}
       />
       <DrawerItem
         focused
@@ -45,7 +45,20 @@ export const CustomDrawerContent = (props: DrawerContentComponentProps) => {
             screen: NavigationScreenNames.ContactStack,
           })
         }
+        style={styles.drawerItem}
       />
     </DrawerContentScrollView>
   );
 };
+
+const styles = StyleSheet.create({
+  drawerItem: {
+    width: '35%',
+  },
+  drawerContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    gap: 20,
+    backgroundColor: '#220E2F',
+  },
+});

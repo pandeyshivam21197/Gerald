@@ -1,45 +1,22 @@
 import React from 'react';
-import {createDrawerNavigator} from '@react-navigation/drawer';
-import {BottomTabNavigator} from '../BottomTabNavigator';
+import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationScreenNames} from '../contants';
-import {CustomDrawerContent} from './CustomDrawerContent';
+import {DrawerNavigator} from './index2';
+import {DrawerSideBar} from './DrawerSideBar';
 
-const Drawer = createDrawerNavigator();
+const Stack = createStackNavigator();
 
-export const DrawerNavigator = () => {
+export const DrawerStackNavigator = () => {
   return (
-    <Drawer.Navigator
-      drawerContent={CustomDrawerContent}
-      screenOptions={{
-        drawerType: 'back', // 'permanent'
-        swipeEnabled: false,
-
-        // drawerStyle: {
-        //   width: '70%',
-        //   position: 'absolute',
-        //   left: 0,
-        //   zIndex: -100,
-        //   backgroundColor: 'red',
-        // },
-        // overlayColor: 'transparent',
-
-        // sceneStyle: {
-        //   zIndex: 1000,
-        //   transform: [
-        //     {rotateZ: '-15deg'},
-        //     {translateX: 250},
-        //     {translateY: 100},
-        //   ],
-        // },
-      }}
-
-      // screenOptions={{header: DrawerIcon}}
-    >
-      <Drawer.Screen
-        name={NavigationScreenNames.BottomTab}
-        component={BottomTabNavigator}
-        options={{headerTitle: ''}}
+    <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Screen
+        name={NavigationScreenNames.Drawer}
+        component={DrawerNavigator}
       />
-    </Drawer.Navigator>
+      <Stack.Screen
+        name={NavigationScreenNames.DrawerSideBar}
+        component={DrawerSideBar}
+      />
+    </Stack.Navigator>
   );
 };
